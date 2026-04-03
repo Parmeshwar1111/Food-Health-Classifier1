@@ -8,8 +8,8 @@ RUN mvn clean package -DskipTests
 FROM eclipse-temurin:21-jdk-alpine
 WORKDIR /app
 
-# IMPORTANT: your pom.xml uses <finalName>app</finalName>
-COPY --from=build /app/target/app.jar app.jar
+# Copy correct jar
+COPY --from=build /app/target/Food-Health-Classifier-1.0.jar app.jar
 
 EXPOSE 8080
 
